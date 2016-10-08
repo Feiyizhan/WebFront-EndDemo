@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>测试DOM事件</title>
+
+  </head>
+
+  <body>
+    <input type="button" id="btn1" value="HTML标签绑定事件" onclick="showMsg1(this);" /> <br />
+    <input type="button" id="btn2" value="DOM0级事件" /><br />
+    <input type="button" id="btn3" value="DOM2级事件" /><br />
+    <script type="text/javascript">
+      function showMsg1(a) {
+        alert("showMsg1");
+        alert(a.value);
+      }
+
+      function showMsg2() {
+        alert("showMs2");
+        alert(this.value);
+      }
+
+      function showMsg3() {
+        alert("showMsg3");
+        alert(this.value);
+      }
+
+      var btn2 = document.getElementById('btn2');
+      var btn3 = document.getElementById('btn3');
+
+      btn2.onclick = showMsg2;
+
+      btn3.addEventListener('click', showMsg3, false);
+	  //IE 8 及以下的处理
+	  btn3.attachEvent('onclick',showMsg3);
+	  btn3.detachEvent('onclick',showMsg3);
+	  
+
+      //			btn2.onclick=null;
+      btn3.removeEventListener('click',showMsg3,false);
+
+    </script>
+  </body>
+
+</html>
