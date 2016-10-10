@@ -86,7 +86,9 @@
         // 滑过滑过、离开、点击每个选项时
         // 执行脚本
         for(var i = 0, l = as.length; i < l; i++) {
+          as[i].i =i;
           as[i].onmouseover = function(e) {
+          	index=this.i;
           	clearAllBackGroundColor();
             this.style.background = '#567';
           };
